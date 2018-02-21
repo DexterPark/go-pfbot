@@ -6,6 +6,26 @@
 go get github.com/iamchanii/go-pfbot
 ```
 
+# Quick Start
+```go
+package main
+
+import "github.com/iamchanii/go-pfbot"
+
+func main() {
+  bot := pfbot.NewBot()
+
+  bot.SetOnKeyboard(func(req pfbot.Request) (interface{}, error) {
+    return pfbot.Keyboard([]string{"시작하기"}), nil
+  })
+
+  bot.Start(":8080")
+}
+```
+```bash
+$ curl -X GET http://localhost:8080/keyboard
+```
+
 # Example
 - [go-pfbot-example](https://github.com/iamchanii/go-pfbot-example)
 
